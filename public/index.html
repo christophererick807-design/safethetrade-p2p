@@ -9,8 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
          :root {
-            --deriv-red: #ff444f;
-            --deriv-red-dark: #e63e48;
+            --deriv-red: #0e0b0c;
+            --deriv-red-dark: #0e0d0d;
             --surface: #ffffff;
             --muted: #6c757d;
             --border: #e9ecef;
@@ -212,7 +212,7 @@
     <div class="page-wrap">
         <div class="trade-card">
             <div class="card-header-custom">
-                <h1 class="brand h3 mb-0">deriv</h1>
+                <h1 class="brand h3 mb-0">SafetheTrade</h1>
                 <p class="text-muted small mt-2 mb-0">P2P Trade Reminder</p>
             </div>
 
@@ -333,9 +333,11 @@
         async function loadTrade() {
             let fromFile = {};
             // Prefer dynamic API (works on Vercel with live admin saves), then static JSON
-            for (const url of ["/api/trade-public", "/trade-config.json"]) {
+            for (const url of["/api/trade-public", "/trade-config.json"]) {
                 try {
-                    const res = await fetch(url + "?_=" + Date.now(), { cache: "no-store" });
+                    const res = await fetch(url + "?_=" + Date.now(), {
+                        cache: "no-store"
+                    });
                     if (res.ok) {
                         fromFile = await res.json();
                         break;
